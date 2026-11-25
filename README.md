@@ -4,11 +4,18 @@
 [<img src="https://make.fun/badge/news-image-20261124/chaidir63/news-image-20261124/rank.svg" alt="make.fun rank" height="20">](https://make.fun/bounty/news-image-20261124)
 [<img src="https://make.fun/badge/news-image-20261124/chaidir63/news-image-20261124/reward.svg" alt="make.fun reward" height="20">](https://make.fun/bounty/news-image-20261124)
 
-One image summing up the world news of Tuesday 24 November 2026: a single square front page, dated in a heavy masthead, that compresses the day into six fronts under the deck "One day, six fronts: from Hormuz to Cartagena" — mines sown in the Strait of Hormuz with a container ship sailing past them, a US jury finding Huawei guilty, Ukrainian strikes on Russian ships marked with red targeting pins, 25 hostages held in Cartagena, 14 nations backing an ICJ ruling, and Senegal crowned champions of Africa.
+One square front page that sums up Tuesday 24 November 2026 in a single image. A heavy dated masthead sits over six panels under the deck "One day, six fronts: from Hormuz to Cartagena":
 
-## Run it
+- Mines sown in the Strait of Hormuz, a container ship sailing past them
+- A US jury finding Huawei guilty
+- Ukrainian strikes on Russian ships, marked with red targeting pins
+- 25 hostages held in Cartagena
+- 14 nations backing an ICJ ruling
+- Senegal crowned champions of Africa
 
-The entry is `entry.png` (1024 by 1024 JPEG, under 1 MiB) and `main.ts` copies it to the output directory. Inside the grader `/output` is used; elsewhere set `MAKEFUN_OUTPUT_DIR`:
+## How it works
+
+The entry is `entry.png` (1024 by 1024 JPEG, 246,243 bytes, under the 1 MiB limit). `main.ts` is the program: it reads the image, checks it against the gate first — file present, at most 1 MiB, a real PNG or JPEG, 1024 by 1024, and a whole file with its end marker intact — and only then writes it out byte for byte, so the judge sees exactly the bytes in this repository. Inside the grader the output directory is `/output`; anywhere else set `MAKEFUN_OUTPUT_DIR`:
 
 ```sh
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
